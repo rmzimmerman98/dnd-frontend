@@ -6,7 +6,7 @@ const Characters = () => {
 let [chars, setChars] = useState([])
 
 const getChars = () => {
-  axios.get('http://localhost:8000/api/characters/')
+  axios.get('https://dungeon-backend.herokuapp.com/api/characters/')
   .then(
     (response) => setChars(response.data),
     (err) => console.log(err)
@@ -15,7 +15,7 @@ const getChars = () => {
 }
   
 const handleCreate = (addChar) => {
-  axios.post('http://localhost:8000/api/characters/', addChar)
+  axios.post('https://dungeon-backend.herokuapp.com/api/characters/', addChar)
   .then((response) => {
     console.log(response);
     getChars()
@@ -23,7 +23,7 @@ const handleCreate = (addChar) => {
 }
 
 const handleDelete = (event) => {
-  axios.delete('http://localhost:8000/api/characters/' + event.target.value)
+  axios.delete('https://dungeon-backend.herokuapp.com/api/characters/' + event.target.value)
   .then((response) => {
     console.log(response)
     getChars()
@@ -32,7 +32,7 @@ const handleDelete = (event) => {
 
 const handleUpdate = (editChar) => {
   console.log(editChar)
-  axios.put('http://localhost:8000/api/characters/' + editChar.id, editChar)
+  axios.put('https://dungeon-backend.herokuapp.com/api/characters/' + editChar.id, editChar)
     .then((response) => {
       console.log(response)
       getChars()
