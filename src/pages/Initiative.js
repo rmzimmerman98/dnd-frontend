@@ -6,7 +6,7 @@ const Initiative = () => {
 let [init, setInit] = useState([])
 
 const getInit = () => {
-  axios.get('http://localhost:8000/api/initiative/')
+  axios.get('https://dungeon-backend.herokuapp.com/api/initiative/')
   .then(
     (response) => setInit(response.data),
     (err) => console.log(err)
@@ -15,7 +15,7 @@ const getInit = () => {
 }
   
 const handleCreate = (addInit) => {
-  axios.post('http://localhost:8000/api/initiative/', addInit)
+  axios.post('https://dungeon-backend.herokuapp.com/api/initiative/', addInit)
   .then((response) => {
     console.log(response);
     getInit()
@@ -23,7 +23,7 @@ const handleCreate = (addInit) => {
 }
 
 const handleDelete = (event) => {
-  axios.delete('http://localhost:8000/api/initiative/' + event.target.value)
+  axios.delete('https://dungeon-backend.herokuapp.com//api/initiative/' + event.target.value)
   .then((response) => {
     console.log(response)
     getInit()
@@ -32,7 +32,7 @@ const handleDelete = (event) => {
 
 const handleUpdate = (editInit) => {
   console.log(editInit)
-  axios.put('http://localhost:8000/api/initiative/' + editInit.id, editInit)
+  axios.put('https://dungeon-backend.herokuapp.com/api/initiative/' + editInit.id, editInit)
     .then((response) => {
       console.log(response)
       getInit()
